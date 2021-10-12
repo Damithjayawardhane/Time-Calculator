@@ -1,0 +1,15 @@
+.action{
+    margin-top: 10px;
+    margin-left: 10%;
+}
+
+.total{
+    position: fixed;
+    width: 100px;
+    bottom: 40px;
+    right: 40px;
+}
+
+.cont{
+    background-color: rgb(200, 255, 221);
+};
