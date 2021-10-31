@@ -7,9 +7,18 @@
     position: fixed;
     width: 100px;
     bottom: 40px;
-    right: 40px;
+    right: 20px;
 }
 
 .cont{
     background-color: rgb(200, 255, 221);
 };
+
+#content{
+    width: 595px;
+    height: 842px;
+};
+
+.monthYear{
+margin-top: 50%;
+}

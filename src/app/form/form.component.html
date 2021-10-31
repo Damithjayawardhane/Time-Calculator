@@ -1,5 +1,29 @@
 <form [formGroup]="formValue">
+
     <div style="width: 700px;" class="cont container">
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Year- {{this.Year}}
+                </div>
+                <div class="col-6">
+                    <mat-form-field>
+                        <input #dpInput matInput [matDatepicker]="dp" placeholder="Choose year and month"
+                            [formControl]="date" formControlName="yearMonth">
+                        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                        <mat-datepicker #dp (monthSelected)="monthSelected($event, dp, dpInput)" startView="multi-year">
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col monthYear">
+                    Month- {{this.Month}}
+                </div>
+            </div>
+        </div>
+
+
+
         <table class="table">
             <thead>
                 <tr>
@@ -13,7 +37,7 @@
             <tbody>
                 <!-- Day 1 -->
                 <tr>
-                    <td>Day 1</td>
+                    <td>{{this.FullYearMonth}}1</td>
                     <td>
                         <input (change)="changeDayIn(1)" type="time" formControlName="inDay1" class="form-control">
                     </td>
@@ -29,12 +53,12 @@
                 </tr>
                 <!-- Day 2 -->
                 <tr>
-                    <td>Day 2</td>
+                    <td>{{this.FullYearMonth}}2</td>
                     <td>
                         <input (change)="changeDayIn(2)" type="time" formControlName="inDay2" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(2)"  type="time" formControlName="outDay2" class="form-control">
+                        <input (change)="dayTotal(2)" type="time" formControlName="outDay2" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay2" class="form-control" readonly>
@@ -43,14 +67,14 @@
                         <i (click)="clearDay(2)" class="action fas fa-times"></i>
                     </td>
                 </tr>
-                  <!-- Day 3 -->
-                  <tr>
-                    <td>Day 3</td>
+                <!-- Day 3 -->
+                <tr>
+                    <td>{{this.FullYearMonth}}3</td>
                     <td>
                         <input (change)="changeDayIn(3)" type="time" formControlName="inDay3" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(3)"  type="time" formControlName="outDay3" class="form-control">
+                        <input (change)="dayTotal(3)" type="time" formControlName="outDay3" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay3" class="form-control" readonly>
@@ -61,12 +85,12 @@
                 </tr>
                 <!-- Day 4 -->
                 <tr>
-                    <td>Day 4</td>
+                    <td>{{this.FullYearMonth}}4</td>
                     <td>
                         <input (change)="changeDayIn(4)" type="time" formControlName="inDay4" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(4)"  type="time" formControlName="outDay4" class="form-control">
+                        <input (change)="dayTotal(4)" type="time" formControlName="outDay4" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay4" class="form-control" readonly>
@@ -77,12 +101,12 @@
                 </tr>
                 <!-- Day 5 -->
                 <tr>
-                    <td>Day 5</td>
+                    <td>{{this.FullYearMonth}}5</td>
                     <td>
                         <input (change)="changeDayIn(5)" type="time" formControlName="inDay5" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(5)"  type="time" formControlName="outDay5" class="form-control">
+                        <input (change)="dayTotal(5)" type="time" formControlName="outDay5" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay5" class="form-control" readonly>
@@ -93,12 +117,12 @@
                 </tr>
                 <!-- Day 6 -->
                 <tr>
-                    <td>Day 6</td>
+                    <td>{{this.FullYearMonth}}6</td>
                     <td>
                         <input (change)="changeDayIn(6)" type="time" formControlName="inDay6" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(6)"  type="time" formControlName="outDay6" class="form-control">
+                        <input (change)="dayTotal(6)" type="time" formControlName="outDay6" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay6" class="form-control" readonly>
@@ -109,12 +133,12 @@
                 </tr>
                 <!-- Day 7 -->
                 <tr>
-                    <td>Day 7</td>
+                    <td>{{this.FullYearMonth}}7</td>
                     <td>
                         <input (change)="changeDayIn(7)" type="time" formControlName="inDay7" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(7)"  type="time" formControlName="outDay7" class="form-control">
+                        <input (change)="dayTotal(7)" type="time" formControlName="outDay7" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay7" class="form-control" readonly>
@@ -125,12 +149,12 @@
                 </tr>
                 <!-- Day 8 -->
                 <tr>
-                    <td>Day 8</td>
+                    <td>{{this.FullYearMonth}}8</td>
                     <td>
                         <input (change)="changeDayIn(8)" type="time" formControlName="inDay8" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(8)"  type="time" formControlName="outDay8" class="form-control">
+                        <input (change)="dayTotal(8)" type="time" formControlName="outDay8" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay8" class="form-control" readonly>
@@ -138,15 +162,15 @@
                     <td>
                         <i (click)="clearDay(8)" class="action fas fa-times"></i>
                     </td>
-                </tr>              
+                </tr>
                 <!-- Day 9 -->
                 <tr>
-                    <td>Day 9</td>
+                    <td>{{this.FullYearMonth}}9</td>
                     <td>
                         <input (change)="changeDayIn(9)" type="time" formControlName="inDay9" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(9)"  type="time" formControlName="outDay9" class="form-control">
+                        <input (change)="dayTotal(9)" type="time" formControlName="outDay9" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay9" class="form-control" readonly>
@@ -157,12 +181,12 @@
                 </tr>
                 <!-- Day 10 -->
                 <tr>
-                    <td>Day 10</td>
+                    <td>{{this.FullYearMonth}}10</td>
                     <td>
                         <input (change)="changeDayIn(10)" type="time" formControlName="inDay10" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(10)"  type="time" formControlName="outDay10" class="form-control">
+                        <input (change)="dayTotal(10)" type="time" formControlName="outDay10" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay10" class="form-control" readonly>
@@ -173,12 +197,12 @@
                 </tr>
                 <!-- Day 11 -->
                 <tr>
-                    <td>Day 11</td>
+                    <td>{{this.FullYearMonth}}11</td>
                     <td>
                         <input (change)="changeDayIn(11)" type="time" formControlName="inDay11" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(11)"  type="time" formControlName="outDay11" class="form-control">
+                        <input (change)="dayTotal(11)" type="time" formControlName="outDay11" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay11" class="form-control" readonly>
@@ -189,12 +213,12 @@
                 </tr>
                 <!-- Day 12 -->
                 <tr>
-                    <td>Day 12</td>
+                    <td>{{this.FullYearMonth}}12</td>
                     <td>
                         <input (change)="changeDayIn(12)" type="time" formControlName="inDay12" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(12)"  type="time" formControlName="outDay12" class="form-control">
+                        <input (change)="dayTotal(12)" type="time" formControlName="outDay12" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay12" class="form-control" readonly>
@@ -205,12 +229,12 @@
                 </tr>
                 <!-- Day 13 -->
                 <tr>
-                    <td>Day 13</td>
+                    <td>{{this.FullYearMonth}}13</td>
                     <td>
                         <input (change)="changeDayIn(13)" type="time" formControlName="inDay13" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(13)"  type="time" formControlName="outDay13" class="form-control">
+                        <input (change)="dayTotal(13)" type="time" formControlName="outDay13" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay13" class="form-control" readonly>
@@ -221,12 +245,12 @@
                 </tr>
                 <!-- Day 14 -->
                 <tr>
-                    <td>Day 14</td>
+                    <td>{{this.FullYearMonth}}14</td>
                     <td>
                         <input (change)="changeDayIn(14)" type="time" formControlName="inDay14" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(14)"  type="time" formControlName="outDay14" class="form-control">
+                        <input (change)="dayTotal(14)" type="time" formControlName="outDay14" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay14" class="form-control" readonly>
@@ -237,12 +261,12 @@
                 </tr>
                 <!-- Day 15 -->
                 <tr>
-                    <td>Day 15</td>
+                    <td>{{this.FullYearMonth}}15</td>
                     <td>
                         <input (change)="changeDayIn(15)" type="time" formControlName="inDay15" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(15)"  type="time" formControlName="outDay15" class="form-control">
+                        <input (change)="dayTotal(15)" type="time" formControlName="outDay15" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay15" class="form-control" readonly>
@@ -253,12 +277,12 @@
                 </tr>
                 <!-- Day 16 -->
                 <tr>
-                    <td>Day 16</td>
+                    <td>{{this.FullYearMonth}}16</td>
                     <td>
                         <input (change)="changeDayIn(16)" type="time" formControlName="inDay16" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(16)"  type="time" formControlName="outDay16" class="form-control">
+                        <input (change)="dayTotal(16)" type="time" formControlName="outDay16" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay16" class="form-control" readonly>
@@ -269,12 +293,12 @@
                 </tr>
                 <!-- Day 17 -->
                 <tr>
-                    <td>Day 17</td>
+                    <td>{{this.FullYearMonth}}17</td>
                     <td>
                         <input (change)="changeDayIn(17)" type="time" formControlName="inDay17" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(17)"  type="time" formControlName="outDay17" class="form-control">
+                        <input (change)="dayTotal(17)" type="time" formControlName="outDay17" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay17" class="form-control" readonly>
@@ -282,15 +306,15 @@
                     <td>
                         <i (click)="clearDay(17)" class="action fas fa-times"></i>
                     </td>
-                </tr>                
+                </tr>
                 <!-- Day 18 -->
                 <tr>
-                    <td>Day 18</td>
+                    <td>{{this.FullYearMonth}}18</td>
                     <td>
                         <input (change)="changeDayIn(18)" type="time" formControlName="inDay18" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(18)"  type="time" formControlName="outDay18" class="form-control">
+                        <input (change)="dayTotal(18)" type="time" formControlName="outDay18" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay18" class="form-control" readonly>
@@ -301,12 +325,12 @@
                 </tr>
                 <!-- Day 19 -->
                 <tr>
-                    <td>Day 19</td>
+                    <td>{{this.FullYearMonth}}19</td>
                     <td>
                         <input (change)="changeDayIn(19)" type="time" formControlName="inDay19" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(19)"  type="time" formControlName="outDay19" class="form-control">
+                        <input (change)="dayTotal(19)" type="time" formControlName="outDay19" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay19" class="form-control" readonly>
@@ -317,12 +341,12 @@
                 </tr>
                 <!-- Day 20 -->
                 <tr>
-                    <td>Day 20</td>
+                    <td>{{this.FullYearMonth}}20</td>
                     <td>
                         <input (change)="changeDayIn(20)" type="time" formControlName="inDay20" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(20)"  type="time" formControlName="outDay20" class="form-control">
+                        <input (change)="dayTotal(20)" type="time" formControlName="outDay20" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay20" class="form-control" readonly>
@@ -333,12 +357,12 @@
                 </tr>
                 <!-- Day 21 -->
                 <tr>
-                    <td>Day 21</td>
+                    <td>{{this.FullYearMonth}}21</td>
                     <td>
                         <input (change)="changeDayIn(21)" type="time" formControlName="inDay21" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(21)"  type="time" formControlName="outDay21" class="form-control">
+                        <input (change)="dayTotal(21)" type="time" formControlName="outDay21" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay21" class="form-control" readonly>
@@ -349,12 +373,12 @@
                 </tr>
                 <!-- Day 22 -->
                 <tr>
-                    <td>Day 22</td>
+                    <td>{{this.FullYearMonth}}22</td>
                     <td>
                         <input (change)="changeDayIn(22)" type="time" formControlName="inDay22" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(22)"  type="time" formControlName="outDay22" class="form-control">
+                        <input (change)="dayTotal(22)" type="time" formControlName="outDay22" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay22" class="form-control" readonly>
@@ -365,12 +389,12 @@
                 </tr>
                 <!-- Day 23 -->
                 <tr>
-                    <td>Day 23</td>
+                    <td>{{this.FullYearMonth}}23</td>
                     <td>
                         <input (change)="changeDayIn(23)" type="time" formControlName="inDay23" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(23)"  type="time" formControlName="outDay23" class="form-control">
+                        <input (change)="dayTotal(23)" type="time" formControlName="outDay23" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay23" class="form-control" readonly>
@@ -381,12 +405,12 @@
                 </tr>
                 <!-- Day 24 -->
                 <tr>
-                    <td>Day 24</td>
+                    <td>{{this.FullYearMonth}}24</td>
                     <td>
                         <input (change)="changeDayIn(24)" type="time" formControlName="inDay24" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(24)"  type="time" formControlName="outDay24" class="form-control">
+                        <input (change)="dayTotal(24)" type="time" formControlName="outDay24" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay24" class="form-control" readonly>
@@ -397,12 +421,12 @@
                 </tr>
                 <!-- Day 25 -->
                 <tr>
-                    <td>Day 25</td>
+                    <td>{{this.FullYearMonth}}25</td>
                     <td>
                         <input (change)="changeDayIn(25)" type="time" formControlName="inDay25" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(25)"  type="time" formControlName="outDay25" class="form-control">
+                        <input (change)="dayTotal(25)" type="time" formControlName="outDay25" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay25" class="form-control" readonly>
@@ -413,12 +437,12 @@
                 </tr>
                 <!-- Day 26 -->
                 <tr>
-                    <td>Day 26</td>
+                    <td>{{this.FullYearMonth}}26</td>
                     <td>
                         <input (change)="changeDayIn(26)" type="time" formControlName="inDay26" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(26)"  type="time" formControlName="outDay26" class="form-control">
+                        <input (change)="dayTotal(26)" type="time" formControlName="outDay26" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay26" class="form-control" readonly>
@@ -429,12 +453,12 @@
                 </tr>
                 <!-- Day 27 -->
                 <tr>
-                    <td>Day 27</td>
+                    <td>{{this.FullYearMonth}}27</td>
                     <td>
                         <input (change)="changeDayIn(27)" type="time" formControlName="inDay27" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(27)"  type="time" formControlName="outDay27" class="form-control">
+                        <input (change)="dayTotal(27)" type="time" formControlName="outDay27" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay27" class="form-control" readonly>
@@ -445,12 +469,12 @@
                 </tr>
                 <!-- Day 28 -->
                 <tr>
-                    <td>Day 28</td>
+                    <td>{{this.FullYearMonth}}28</td>
                     <td>
                         <input (change)="changeDayIn(28)" type="time" formControlName="inDay28" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(28)"  type="time" formControlName="outDay28" class="form-control">
+                        <input (change)="dayTotal(28)" type="time" formControlName="outDay28" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay28" class="form-control" readonly>
@@ -461,12 +485,12 @@
                 </tr>
                 <!-- Day 29 -->
                 <tr>
-                    <td>Day 29</td>
+                    <td>{{this.FullYearMonth}}29</td>
                     <td>
                         <input (change)="changeDayIn(29)" type="time" formControlName="inDay29" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(29)"  type="time" formControlName="outDay29" class="form-control">
+                        <input (change)="dayTotal(29)" type="time" formControlName="outDay29" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay29" class="form-control" readonly>
@@ -477,12 +501,12 @@
                 </tr>
                 <!-- Day 30 -->
                 <tr>
-                    <td>Day 30</td>
+                    <td>{{this.FullYearMonth}}30</td>
                     <td>
                         <input (change)="changeDayIn(30)" type="time" formControlName="inDay30" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(30)"  type="time" formControlName="outDay30" class="form-control">
+                        <input (change)="dayTotal(30)" type="time" formControlName="outDay30" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay30" class="form-control" readonly>
@@ -493,12 +517,12 @@
                 </tr>
                 <!-- Day 31 -->
                 <tr>
-                    <td>Day 31</td>
+                    <td>{{this.FullYearMonth}}31</td>
                     <td>
                         <input (change)="changeDayIn(31)" type="time" formControlName="inDay31" class="form-control">
                     </td>
                     <td>
-                        <input (change)="dayTotal(31)"  type="time" formControlName="outDay31" class="form-control">
+                        <input (change)="dayTotal(31)" type="time" formControlName="outDay31" class="form-control">
                     </td>
                     <td style="width: 100px;">
                         <input type="text" formControlName="totalDay31" class="form-control" readonly>
@@ -507,15 +531,15 @@
                         <i (click)="clearDay(31)" class="action fas fa-times"></i>
                     </td>
                 </tr>
-            </tbody>            
+            </tbody>
         </table>
-       
+
     </div>
 
     <div style="color: red;" class="total">
         <label class="form-label">Total hours</label>
-        <input type="text" class="form-control" formControlName="totalhours" readonly/>
-    </div>
+        <input type="text" class="form-control" formControlName="totalhours" readonly />
 
-    
+        <button (click)="makePDF()" type="button" class="btn btn-outline-info btn-sm">Print</button>
+    </div>
 </form>
