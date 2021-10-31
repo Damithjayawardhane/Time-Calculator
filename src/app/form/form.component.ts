@@ -61,6 +61,8 @@ export class FormComponent implements OnInit {
   public Year: string = '';
   public Month: string = '';
   public FullYearMonth: string = '';
+  public Name: string = '';
+  public EPF: string = '';
 
   ngOnInit(): void {
     this.setForm();
@@ -109,11 +111,20 @@ export class FormComponent implements OnInit {
     this.FullYearMonth = this.Year + "/" + this.Month+"/";
   }
 
+  changeName(){
+    this.Name = this.formValue.value.name;    
+  }
+
+  changeEpf(){
+    this.EPF = this.formValue.value.epf;
+  }
+
   makePDF() {
     let pdf = new jsPDF();
 
-    pdf.setFontSize(18);
+    pdf.setFontSize(12);
     pdf.text("Time Calculator- " + this.Year + ", " + this.Month, 11, 8);
+    pdf.text("Name "+this.Name+" EPF "+this.EPF,+ 100, 8);
     pdf.setFontSize(11);
     pdf.setTextColor(100);
 
@@ -121,7 +132,8 @@ export class FormComponent implements OnInit {
       head: this.head,
       body: this.data,
       theme: 'striped',
-      foot: this.foot
+      foot: this.foot,
+
 
     })
 
@@ -130,7 +142,7 @@ export class FormComponent implements OnInit {
     pdf.output('dataurlnewwindow')
 
     // below line for Download PDF document  
-    pdf.save("Time Calculator.pdf ")
+    pdf.save("Time Calculator.pdf")
 
 
 
@@ -139,7 +151,8 @@ export class FormComponent implements OnInit {
   setForm() {
     this.formValue = this.formBuilder.group({
       totalhours: ["0:00"],
-      yearMonth: [],
+      epf: [],
+      name: [],
 
       inDay1: [],
       outDay1: [],

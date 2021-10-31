@@ -1,29 +1,32 @@
 <form [formGroup]="formValue">
 
-    <div style="width: 700px;" class="cont container">
+    <div  class="cont container">
 
-        <div class="container">
-            <div class="row">
+       
+            <div class="row" style="padding-top: 5px;">
                 <div class="col">
-                    Year- {{this.Year}}
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter name</mat-label>
+                        <input (keyup)="changeName()"  formControlName="name"  matInput placeholder="name">
+                    </mat-form-field>
                 </div>
-                <div class="col-6">
+                <div class="col">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter EPF</mat-label>
+                        <input (keyup)="changeEpf()" formControlName="epf" matInput placeholder="xxxx">
+                    </mat-form-field>
+                </div>
+                <div class="col" style="padding-top: 12px;">
                     <mat-form-field>
                         <input #dpInput matInput [matDatepicker]="dp" placeholder="Choose year and month"
-                            [formControl]="date" formControlName="yearMonth">
+                            [formControl]="date" >
                         <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                         <mat-datepicker #dp (monthSelected)="monthSelected($event, dp, dpInput)" startView="multi-year">
                         </mat-datepicker>
-                    </mat-form-field>
-                </div>
-                <div class="col monthYear">
-                    Month- {{this.Month}}
+                    </mat-form-field>                  
                 </div>
             </div>
-        </div>
-
-
-
+       
         <table class="table">
             <thead>
                 <tr>
